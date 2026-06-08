@@ -523,21 +523,30 @@ body[data-video="missing"] .hero-video {
 .client-logo-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  border-top: 1px solid var(--line);
-  border-left: 1px solid var(--line);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #f5efe2;
 }
 
-.client-logo-grid span {
+.client-logo-card {
   display: grid;
-  min-height: 7rem;
+  min-height: 8.5rem;
   place-items: center;
-  border-right: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  color: rgba(248, 240, 223, 0.74);
-  font-family: "Syne", sans-serif;
-  font-size: clamp(1.05rem, 2.2vw, 1.65rem);
-  font-weight: 800;
-  letter-spacing: 0.05em;
+  padding: 1.15rem;
+  outline: 1px solid var(--line);
+  outline-offset: -1px;
+  background: #f5efe2;
+}
+
+.client-logo-card--dark {
+  background: #15120d;
+}
+
+.client-logo-card img {
+  display: block;
+  width: min(100%, 13.5rem);
+  height: auto;
+  object-fit: contain;
 }
 
 .testimonial-grid {
