@@ -184,6 +184,16 @@
                 decoding="async"
               />
             </picture>
+            <button
+              class="image-open"
+              type="button"
+              data-lightbox-src="assets/portfolio/project-documentary.webp"
+              data-lightbox-title="After Rain"
+              data-lightbox-alt="Cinematischer Dokumentarfilm-Still in einer regennassen Stadtgasse"
+              aria-label="Still After Rain vergroessern"
+            >
+              Still ansehen
+            </button>
             <div class="work-caption">
               <p class="work-kicker">Documentary Short</p>
               <h3 id="work-title">After Rain</h3>
@@ -207,6 +217,16 @@
                 decoding="async"
               />
             </picture>
+            <button
+              class="image-open"
+              type="button"
+              data-lightbox-src="assets/portfolio/project-commercial.webp"
+              data-lightbox-title="Morning Ritual"
+              data-lightbox-alt="Warmer Commercial-Still mit Kaffee, Dampf und Morgenlicht"
+              aria-label="Still Morning Ritual vergroessern"
+            >
+              Still ansehen
+            </button>
             <div class="work-caption">
               <p class="work-kicker">Branded Film</p>
               <h3>Morning Ritual</h3>
@@ -230,6 +250,16 @@
                 decoding="async"
               />
             </picture>
+            <button
+              class="image-open"
+              type="button"
+              data-lightbox-src="assets/portfolio/project-music.webp"
+              data-lightbox-title="Hard Light"
+              data-lightbox-alt="Dramatischer Musikvideo-Still mit Taenzerin und hartem Licht"
+              aria-label="Still Hard Light vergroessern"
+            >
+              Still ansehen
+            </button>
             <div class="work-caption">
               <p class="work-kicker">Music Video</p>
               <h3>Hard Light</h3>
@@ -343,6 +373,15 @@
     <div class="mobile-action-bar" aria-label="Schnellkontakt">
       <a href="contact.html">Projekt anfragen</a>
       <a href="mailto:hello@michiastegegne.com">Mail</a>
+    </div>
+
+    <div class="lightbox" id="imageLightbox" aria-hidden="true">
+      <button class="lightbox-backdrop" type="button" data-lightbox-close aria-label="Bildansicht schliessen"></button>
+      <div class="lightbox-panel" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
+        <button class="lightbox-close" type="button" data-lightbox-close>Schliessen</button>
+        <img id="lightboxImage" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="" />
+        <p id="lightboxTitle"></p>
+      </div>
     </div>
 
     <script src="script.js"></script>

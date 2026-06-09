@@ -7,8 +7,14 @@ const briefMailLink = document.getElementById("briefMailLink");
 const workFilter = document.querySelector(".work-filter");
 const projectRows = document.querySelectorAll("[data-project]");
 const copyButtons = document.querySelectorAll("[data-copy]");
+const lightbox = document.getElementById("imageLightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxTitle = document.getElementById("lightboxTitle");
+const lightboxTriggers = document.querySelectorAll("[data-lightbox-src]");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const canUseParallax = window.matchMedia("(pointer: fine)").matches && !prefersReducedMotion.matches;
+const emptyLightboxImage = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
+let activeLightboxTrigger = null;
 
 const copyText = async (value) => {
   if (navigator.clipboard?.writeText && window.isSecureContext) {
@@ -194,6 +200,51 @@ copyButtons.forEach((button) => {
     }, 2400);
   });
 });
+
+if (lightbox && lightboxImage && lightboxTitle && lightboxTriggers.length) {
+  const closeButton = lightbox.querySelector(".lightbox-close");
+
+  const closeLightbox = () => {
+    lightbox.classList.remove("is-open");
+    lightbox.setAttribute("aria-hidden", "true");
+    body.classList.remove("has-lightbox");
+    lightboxImage.src = emptyLightboxImage;
+    lightboxImage.alt = "";
+    lightboxTitle.textContent = "";
+
+    if (activeLightboxTrigger) {
+      activeLightboxTrigger.focus();
+      activeLightboxTrigger = null;
+    }
+  };
+
+  const openLightbox = (trigger) => {
+    activeLightboxTrigger = trigger;
+    lightboxImage.src = trigger.dataset.lightboxSrc;
+    lightboxImage.alt = trigger.dataset.lightboxAlt || "";
+    lightboxTitle.textContent = trigger.dataset.lightboxTitle || "";
+    lightbox.classList.add("is-open");
+    lightbox.setAttribute("aria-hidden", "false");
+    body.classList.add("has-lightbox");
+    window.requestAnimationFrame(() => {
+      closeButton?.focus({ preventScroll: true });
+    });
+  };
+
+  lightboxTriggers.forEach((trigger) => {
+    trigger.addEventListener("click", () => openLightbox(trigger));
+  });
+
+  lightbox.querySelectorAll("[data-lightbox-close]").forEach((button) => {
+    button.addEventListener("click", closeLightbox);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+      closeLightbox();
+    }
+  });
+}
 
 if (briefBuilder && briefMailLink) {
   const updateBriefMail = () => {

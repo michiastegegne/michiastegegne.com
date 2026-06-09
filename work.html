@@ -72,17 +72,29 @@
       <section class="section project-list" aria-label="Projektliste">
         <article class="project-row reveal" data-project data-category="documentary social">
           <div class="project-index">01</div>
-          <picture>
-            <source srcset="assets/portfolio/project-documentary.webp" type="image/webp" />
-            <img
-              src="assets/portfolio/project-documentary.png"
-              alt="Regennasse Stadtgasse als Dokumentarfilm-Still"
-              width="1536"
-              height="1024"
-              loading="lazy"
-              decoding="async"
-            />
-          </picture>
+          <div class="project-media">
+            <picture>
+              <source srcset="assets/portfolio/project-documentary.webp" type="image/webp" />
+              <img
+                src="assets/portfolio/project-documentary.png"
+                alt="Regennasse Stadtgasse als Dokumentarfilm-Still"
+                width="1536"
+                height="1024"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+            <button
+              class="image-open"
+              type="button"
+              data-lightbox-src="assets/portfolio/project-documentary.webp"
+              data-lightbox-title="After Rain"
+              data-lightbox-alt="Regennasse Stadtgasse als Dokumentarfilm-Still"
+              aria-label="Still After Rain vergroessern"
+            >
+              Still ansehen
+            </button>
+          </div>
           <div class="project-copy">
             <p class="eyebrow">Documentary Short</p>
             <h2>After Rain</h2>
@@ -114,17 +126,29 @@
 
         <article class="project-row reveal" data-project data-category="commercial social">
           <div class="project-index">02</div>
-          <picture>
-            <source srcset="assets/portfolio/project-commercial.webp" type="image/webp" />
-            <img
-              src="assets/portfolio/project-commercial.png"
-              alt="Commercial-Still mit Kaffee und warmem Morgenlicht"
-              width="1536"
-              height="1024"
-              loading="lazy"
-              decoding="async"
-            />
-          </picture>
+          <div class="project-media">
+            <picture>
+              <source srcset="assets/portfolio/project-commercial.webp" type="image/webp" />
+              <img
+                src="assets/portfolio/project-commercial.png"
+                alt="Commercial-Still mit Kaffee und warmem Morgenlicht"
+                width="1536"
+                height="1024"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+            <button
+              class="image-open"
+              type="button"
+              data-lightbox-src="assets/portfolio/project-commercial.webp"
+              data-lightbox-title="Morning Ritual"
+              data-lightbox-alt="Commercial-Still mit Kaffee und warmem Morgenlicht"
+              aria-label="Still Morning Ritual vergroessern"
+            >
+              Still ansehen
+            </button>
+          </div>
           <div class="project-copy">
             <p class="eyebrow">Branded Film</p>
             <h2>Morning Ritual</h2>
@@ -157,17 +181,29 @@
 
         <article class="project-row reveal" data-project data-category="music social">
           <div class="project-index">03</div>
-          <picture>
-            <source srcset="assets/portfolio/project-music.webp" type="image/webp" />
-            <img
-              src="assets/portfolio/project-music.png"
-              alt="Musikvideo-Still mit Taenzerin und hartem Licht"
-              width="1536"
-              height="1024"
-              loading="lazy"
-              decoding="async"
-            />
-          </picture>
+          <div class="project-media">
+            <picture>
+              <source srcset="assets/portfolio/project-music.webp" type="image/webp" />
+              <img
+                src="assets/portfolio/project-music.png"
+                alt="Musikvideo-Still mit Taenzerin und hartem Licht"
+                width="1536"
+                height="1024"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+            <button
+              class="image-open"
+              type="button"
+              data-lightbox-src="assets/portfolio/project-music.webp"
+              data-lightbox-title="Hard Light"
+              data-lightbox-alt="Musikvideo-Still mit Taenzerin und hartem Licht"
+              aria-label="Still Hard Light vergroessern"
+            >
+              Still ansehen
+            </button>
+          </div>
           <div class="project-copy">
             <p class="eyebrow">Music Video</p>
             <h2>Hard Light</h2>
@@ -231,6 +267,15 @@
     <div class="mobile-action-bar" aria-label="Schnellkontakt">
       <a href="contact.html">Projekt anfragen</a>
       <a href="mailto:hello@michiastegegne.com">Mail</a>
+    </div>
+
+    <div class="lightbox" id="imageLightbox" aria-hidden="true">
+      <button class="lightbox-backdrop" type="button" data-lightbox-close aria-label="Bildansicht schliessen"></button>
+      <div class="lightbox-panel" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
+        <button class="lightbox-close" type="button" data-lightbox-close>Schliessen</button>
+        <img id="lightboxImage" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="" />
+        <p id="lightboxTitle"></p>
+      </div>
     </div>
 
     <script src="script.js"></script>
