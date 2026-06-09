@@ -2,6 +2,8 @@ const reveals = document.querySelectorAll(".reveal");
 const parallaxNodes = document.querySelectorAll("[data-depth]");
 const body = document.body;
 const heroVideo = document.getElementById("heroVideo");
+const briefBuilder = document.getElementById("briefBuilder");
+const briefMailLink = document.getElementById("briefMailLink");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const canUseParallax = window.matchMedia("(pointer: fine)").matches && !prefersReducedMotion.matches;
 
@@ -94,4 +96,35 @@ if (heroVideo) {
       markMissing();
     }
   }, 1800);
+}
+
+if (briefBuilder && briefMailLink) {
+  const updateBriefMail = () => {
+    const data = new FormData(briefBuilder);
+    const projectType = data.get("projectType") || "Film / Video";
+    const platform = data.get("platform") || "";
+    const timeline = data.get("timeline") || "";
+    const budget = data.get("budget") || "";
+    const goal = data.get("goal") || "";
+    const lines = [
+      `Projektart: ${projectType}`,
+      `Plattform: ${platform}`,
+      `Timing: ${timeline}`,
+      `Budgetrahmen: ${budget}`,
+      "",
+      "Ziel / Idee:",
+      goal,
+    ];
+    const subject = `Projektanfrage: ${projectType}`;
+    briefMailLink.href = `mailto:hello@michiastegegne.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
+  };
+
+  briefBuilder.addEventListener("input", updateBriefMail);
+  briefBuilder.addEventListener("change", updateBriefMail);
+  briefBuilder.addEventListener("submit", (event) => {
+    event.preventDefault();
+    updateBriefMail();
+    window.location.href = briefMailLink.href;
+  });
+  updateBriefMail();
 }

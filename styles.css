@@ -751,6 +751,83 @@ body[data-video="missing"] .hero-video {
   text-align: center;
 }
 
+.brief-builder {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(230, 173, 88, 0.08), transparent 36%),
+    rgba(248, 240, 223, 0.045);
+}
+
+.brief-builder label {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.brief-builder label span {
+  color: var(--amber);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.brief-builder input,
+.brief-builder select,
+.brief-builder textarea {
+  width: 100%;
+  min-height: 3.2rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.9rem 1rem;
+  color: var(--ink);
+  background: rgba(15, 14, 11, 0.64);
+  font: inherit;
+  appearance: none;
+}
+
+.brief-builder textarea {
+  min-height: 10rem;
+  resize: vertical;
+}
+
+.brief-builder input::placeholder,
+.brief-builder textarea::placeholder {
+  color: rgba(248, 240, 223, 0.4);
+}
+
+.brief-builder input:focus,
+.brief-builder select:focus,
+.brief-builder textarea:focus {
+  border-color: rgba(230, 173, 88, 0.72);
+  outline: 0;
+}
+
+.brief-builder-wide,
+.brief-builder-actions {
+  grid-column: 1 / -1;
+}
+
+.brief-builder-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.brief-builder-actions p {
+  max-width: 28rem;
+  margin: 0;
+  color: var(--subtle);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
 .contact-cta {
   padding: 6rem 0;
   background:
@@ -1086,6 +1163,11 @@ body[data-video="missing"] .hero-video {
   transform: translateY(0);
 }
 
+.topbar.reveal {
+  opacity: 1;
+  transform: none;
+}
+
 @keyframes ticker {
   from {
     transform: translateX(0);
@@ -1158,7 +1240,8 @@ body[data-video="missing"] .hero-video {
   }
 
   .service-pill-grid,
-  .brief-grid {
+  .brief-grid,
+  .brief-builder {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1296,8 +1379,18 @@ body[data-video="missing"] .hero-video {
   .reel-notes,
   .client-logo-grid,
   .service-pill-grid,
-  .brief-grid {
+  .brief-grid,
+  .brief-builder {
     grid-template-columns: 1fr;
+  }
+
+  .brief-builder {
+    padding: 0.75rem;
+  }
+
+  .brief-builder-actions {
+    align-items: stretch;
+    flex-direction: column;
   }
 
   .work-card,

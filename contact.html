@@ -73,17 +73,51 @@
 
       <section class="section brief-section" aria-labelledby="brief-title">
         <div class="section-heading reveal">
-          <p class="eyebrow">Good brief</p>
-          <h2 id="brief-title">Was in deine erste Nachricht gehoert.</h2>
+          <p class="eyebrow">Brief Builder</p>
+          <h2 id="brief-title">Baue in 60 Sekunden eine klare Anfrage.</h2>
         </div>
-        <div class="brief-grid reveal">
-          <span>Projektziel</span>
-          <span>Format & Plattform</span>
-          <span>Deadline</span>
-          <span>Budgetrahmen</span>
-          <span>Referenzen</span>
-          <span>Kontaktperson</span>
-        </div>
+        <form class="brief-builder reveal" id="briefBuilder">
+          <label>
+            <span>Projektart</span>
+            <select name="projectType">
+              <option value="Music Video">Music Video</option>
+              <option value="Brand Film">Brand Film</option>
+              <option value="Social Reels">Social Reels</option>
+              <option value="Documentary Portrait">Documentary Portrait</option>
+              <option value="Editing & Color">Editing & Color</option>
+            </select>
+          </label>
+          <label>
+            <span>Plattform</span>
+            <input name="platform" type="text" placeholder="Instagram, Website, YouTube..." />
+          </label>
+          <label>
+            <span>Timing</span>
+            <input name="timeline" type="text" placeholder="z.B. Dreh im Juli, Launch im August" />
+          </label>
+          <label>
+            <span>Budgetrahmen</span>
+            <input name="budget" type="text" placeholder="optional" />
+          </label>
+          <label class="brief-builder-wide">
+            <span>Was muss der Film erreichen?</span>
+            <textarea
+              name="goal"
+              rows="5"
+              placeholder="Ziel, Stimmung, Referenzen, vorhandenes Material..."
+            ></textarea>
+          </label>
+          <div class="brief-builder-actions">
+            <a
+              class="button button-primary"
+              id="briefMailLink"
+              href="mailto:hello@michiastegegne.com?subject=Projektanfrage%20Film%20/%20Video"
+            >
+              Brief als Mail oeffnen
+            </a>
+            <p>Deine Angaben bleiben im Browser und werden erst beim Oeffnen deiner Mail-App uebernommen.</p>
+          </div>
+        </form>
       </section>
     </main>
 
