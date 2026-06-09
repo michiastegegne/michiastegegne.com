@@ -125,6 +125,7 @@ ul {
 
 .page-topbar {
   background: rgba(15, 14, 11, 0.78);
+  -webkit-backdrop-filter: blur(18px);
   backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--line);
 }
@@ -160,6 +161,7 @@ ul {
   border: 1px solid var(--line);
   border-radius: 999px;
   background: rgba(15, 14, 11, 0.45);
+  -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
 }
 
@@ -336,6 +338,7 @@ body[data-video="missing"] .hero-video {
   border: 1px solid var(--line);
   border-radius: 999px;
   background: rgba(15, 14, 11, 0.38);
+  -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
 }
 
@@ -1118,6 +1121,10 @@ body[data-video="missing"] .hero-video {
   justify-self: end;
 }
 
+.mobile-action-bar {
+  display: none;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(28px);
@@ -1248,8 +1255,9 @@ body[data-video="missing"] .hero-video {
       calc(0.75rem + env(safe-area-inset-top))
       max(0.65rem, env(safe-area-inset-right))
       0.7rem
-      max(0.65rem, env(safe-area-inset-left));
+    max(0.65rem, env(safe-area-inset-left));
     background: rgba(15, 14, 11, 0.82);
+    -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--line);
   }
@@ -1384,10 +1392,50 @@ body[data-video="missing"] .hero-video {
 
   .footer {
     grid-template-columns: 1fr;
+    padding-bottom: calc(6.5rem + env(safe-area-inset-bottom));
   }
 
   .footer a:last-child {
     justify-self: start;
+  }
+
+  .mobile-action-bar {
+    position: fixed;
+    right: max(0.65rem, env(safe-area-inset-right));
+    bottom: max(0.65rem, env(safe-area-inset-bottom));
+    left: max(0.65rem, env(safe-area-inset-left));
+    z-index: 60;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.45rem;
+    padding: 0.45rem;
+    border: 1px solid rgba(248, 240, 223, 0.18);
+    border-radius: 999px;
+    background: rgba(15, 14, 11, 0.82);
+    box-shadow: 0 18px 56px rgba(0, 0, 0, 0.36);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+  }
+
+  .mobile-action-bar a {
+    display: inline-flex;
+    min-height: 2.85rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    font-weight: 800;
+    text-align: center;
+  }
+
+  .mobile-action-bar a:first-child {
+    color: #120f0a;
+    background: linear-gradient(135deg, var(--amber), #f3d397);
+  }
+
+  .mobile-action-bar a:last-child {
+    min-width: 5.4rem;
+    color: var(--ink);
+    background: rgba(248, 240, 223, 0.08);
   }
 }
 
