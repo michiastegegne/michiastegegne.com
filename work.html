@@ -2,11 +2,19 @@
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0f0e0b" />
+    <meta name="format-detection" content="telephone=no" />
     <meta
       name="description"
       content="Ausgewaehlte Film- und Videoprojekte von Michias Tegegne."
     />
+    <link rel="canonical" href="https://michiastegegne.com/work.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Work | Michias Tegegne" />
+    <meta property="og:description" content="Ausgewaehlte Film- und Videoprojekte von Michias Tegegne." />
+    <meta property="og:url" content="https://michiastegegne.com/work.html" />
+    <meta property="og:image" content="https://michiastegegne.com/assets/portfolio/project-documentary.png" />
     <title>Work | Michias Tegegne</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,8 +25,9 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <a class="skip-link" href="#main">Zum Inhalt springen</a>
     <div class="site-grain" aria-hidden="true"></div>
-    <nav class="topbar page-topbar reveal">
+    <nav class="topbar page-topbar reveal" aria-label="Primaere Navigation">
       <a class="brand" href="index.html">Michias Tegegne</a>
       <div class="nav-links" aria-label="Hauptnavigation">
         <a href="index.html">Home</a>
@@ -29,15 +38,15 @@
       </div>
     </nav>
 
-    <main>
+    <main id="main">
       <header class="page-hero section">
         <p class="eyebrow reveal">Selected Work</p>
         <h1 class="page-title reveal">Projects with rhythm, texture and intent.</h1>
         <div class="page-lead-grid reveal">
           <p>
-            Eine Auswahl an Richtungen fuer deine echten Arbeiten. Die
-            Projektkarten sind bewusst gross, damit Videos, Stills und Cases
-            spaeter stark wirken.
+            Eine kompakte Auswahl visueller Richtungen: dokumentarisch,
+            kommerziell, musikalisch. Jedes Projekt zeigt schnell, welchen Look
+            und welche Rolle ich in die Arbeit bringe.
           </p>
           <a class="button button-secondary" href="contact.html">Projekt anfragen</a>
         </div>
@@ -46,10 +55,17 @@
       <section class="section project-list" aria-label="Projektliste">
         <article class="project-row reveal">
           <div class="project-index">01</div>
-          <img
-            src="assets/portfolio/project-documentary.png"
-            alt="Regennasse Stadtgasse als Dokumentarfilm-Still"
-          />
+          <picture>
+            <source srcset="assets/portfolio/project-documentary.webp" type="image/webp" />
+            <img
+              src="assets/portfolio/project-documentary.png"
+              alt="Regennasse Stadtgasse als Dokumentarfilm-Still"
+              width="1536"
+              height="1024"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
           <div class="project-copy">
             <p class="eyebrow">Documentary Short</p>
             <h2>After Rain</h2>
@@ -67,10 +83,17 @@
 
         <article class="project-row reveal">
           <div class="project-index">02</div>
-          <img
-            src="assets/portfolio/project-commercial.png"
-            alt="Commercial-Still mit Kaffee und warmem Morgenlicht"
-          />
+          <picture>
+            <source srcset="assets/portfolio/project-commercial.webp" type="image/webp" />
+            <img
+              src="assets/portfolio/project-commercial.png"
+              alt="Commercial-Still mit Kaffee und warmem Morgenlicht"
+              width="1536"
+              height="1024"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
           <div class="project-copy">
             <p class="eyebrow">Branded Film</p>
             <h2>Morning Ritual</h2>
@@ -89,10 +112,17 @@
 
         <article class="project-row reveal">
           <div class="project-index">03</div>
-          <img
-            src="assets/portfolio/project-music.png"
-            alt="Musikvideo-Still mit Taenzerin und hartem Licht"
-          />
+          <picture>
+            <source srcset="assets/portfolio/project-music.webp" type="image/webp" />
+            <img
+              src="assets/portfolio/project-music.png"
+              alt="Musikvideo-Still mit Taenzerin und hartem Licht"
+              width="1536"
+              height="1024"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
           <div class="project-copy">
             <p class="eyebrow">Music Video</p>
             <h2>Hard Light</h2>
@@ -112,15 +142,15 @@
       <section class="section case-metrics" aria-label="Arbeitsdaten">
         <div class="metric reveal">
           <span>03</span>
-          <p>Projektwelten vorbereitet</p>
+          <p>visuelle Richtungen auf einen Blick</p>
         </div>
         <div class="metric reveal">
           <span>05</span>
-          <p>Service-Richtungen</p>
+          <p>Leistungen von Konzept bis Delivery</p>
         </div>
         <div class="metric reveal">
           <span>01</span>
-          <p>Showreel-Slot fuer dein echtes Video</p>
+          <p>Showreel als schneller erster Eindruck</p>
         </div>
       </section>
 

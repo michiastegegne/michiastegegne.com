@@ -2,22 +2,29 @@ const reveals = document.querySelectorAll(".reveal");
 const parallaxNodes = document.querySelectorAll("[data-depth]");
 const body = document.body;
 const heroVideo = document.getElementById("heroVideo");
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const canUseParallax = window.matchMedia("(pointer: fine)").matches && !prefersReducedMotion.matches;
 
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("in-view");
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  },
-  {
-    threshold: 0.18,
-  },
-);
+if ("IntersectionObserver" in window && !prefersReducedMotion.matches) {
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      rootMargin: "0px 0px -8% 0px",
+      threshold: 0.14,
+    },
+  );
 
-reveals.forEach((node) => revealObserver.observe(node));
+  reveals.forEach((node) => revealObserver.observe(node));
+} else {
+  reveals.forEach((node) => node.classList.add("in-view"));
+}
 
 const setPointer = (x, y) => {
   body.style.setProperty("--pointer-x", `${x}px`);
@@ -32,9 +39,29 @@ const setPointer = (x, y) => {
   });
 };
 
-window.addEventListener("pointermove", (event) => {
-  setPointer(event.clientX, event.clientY);
-});
+if (canUseParallax) {
+  let pointerFrame = 0;
+  let pointerX = window.innerWidth / 2;
+  let pointerY = window.innerHeight / 2;
+
+  window.addEventListener(
+    "pointermove",
+    (event) => {
+      pointerX = event.clientX;
+      pointerY = event.clientY;
+
+      if (pointerFrame) {
+        return;
+      }
+
+      pointerFrame = window.requestAnimationFrame(() => {
+        setPointer(pointerX, pointerY);
+        pointerFrame = 0;
+      });
+    },
+    { passive: true },
+  );
+}
 
 window.addEventListener("load", () => {
   setPointer(window.innerWidth / 2, window.innerHeight / 2);
@@ -54,6 +81,11 @@ if (heroVideo) {
   heroVideo.addEventListener("canplay", markReady, { once: true });
   heroVideo.addEventListener("loadeddata", markReady, { once: true });
   heroVideo.addEventListener("error", markMissing, { once: true });
+
+  const playbackAttempt = heroVideo.play?.();
+  if (playbackAttempt?.catch) {
+    playbackAttempt.catch(markMissing);
+  }
 
   window.setTimeout(() => {
     if (heroVideo.readyState >= 2) {

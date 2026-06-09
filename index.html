@@ -2,11 +2,22 @@
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0f0e0b" />
+    <meta name="format-detection" content="telephone=no" />
     <meta
       name="description"
       content="Portfolio von Michias Tegegne, Filmmaker fuer Showreels, Kampagnen, Musikvideos und dokumentarische Formate."
     />
+    <link rel="canonical" href="https://michiastegegne.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Michias Tegegne | Filmmaker" />
+    <meta
+      property="og:description"
+      content="Filme mit Rhythmus, Textur und Haltung fuer Marken, Artists und Menschen."
+    />
+    <meta property="og:url" content="https://michiastegegne.com/" />
+    <meta property="og:image" content="https://michiastegegne.com/assets/portfolio/filmmaker-hero.png" />
     <title>Michias Tegegne | Filmmaker</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,6 +28,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="page-home" data-video="loading">
+    <a class="skip-link" href="#main">Zum Inhalt springen</a>
     <div class="site-grain" aria-hidden="true"></div>
 
     <header class="hero" id="top">
@@ -27,13 +39,15 @@
         muted
         loop
         playsinline
-        poster="assets/portfolio/filmmaker-hero.png"
+        preload="metadata"
+        poster="assets/portfolio/filmmaker-hero.webp"
+        aria-label="Atmosphaerischer Showreel-Loop von Michias Tegegne"
       >
         <source src="assets/portfolio/showreel-loop.mp4" type="video/mp4" />
       </video>
       <div class="hero-shade" aria-hidden="true"></div>
 
-      <nav class="topbar reveal">
+      <nav class="topbar reveal" aria-label="Primaere Navigation">
         <a class="brand" href="index.html">Michias Tegegne</a>
         <div class="nav-links" aria-label="Hauptnavigation">
           <a aria-current="page" href="index.html">Home</a>
@@ -68,7 +82,7 @@
       </aside>
     </header>
 
-    <main>
+    <main id="main">
       <section class="ticker" aria-label="Schwerpunkte">
         <div class="ticker-track">
           direction / cinematography / editing / color / campaign films /
@@ -102,6 +116,33 @@
         </div>
       </section>
 
+      <section class="section choice-section" aria-labelledby="choice-title">
+        <div class="section-kicker-row reveal">
+          <div>
+            <p class="eyebrow">Start here</p>
+            <h2 id="choice-title">Waehle den schnellsten Weg ins Projekt.</h2>
+          </div>
+          <a href="contact.html">Direkt anfragen</a>
+        </div>
+        <div class="choice-grid">
+          <a class="choice-card reveal" href="work.html">
+            <span>01</span>
+            <h3>Arbeiten sehen</h3>
+            <p>Projektwelten, Stills und Formate fuer den ersten visuellen Eindruck.</p>
+          </a>
+          <a class="choice-card reveal" href="services.html">
+            <span>02</span>
+            <h3>Format finden</h3>
+            <p>Music Video, Brand Film, Social Reels, Portrait oder Edit & Color.</p>
+          </a>
+          <a class="choice-card choice-card--accent reveal" href="contact.html">
+            <span>03</span>
+            <h3>Brief schicken</h3>
+            <p>Wenn Ziel, Timing und Plattform klar sind, starten wir fokussiert.</p>
+          </a>
+        </div>
+      </section>
+
       <section class="showreel" id="showreel" aria-labelledby="showreel-title">
         <div class="section showreel-inner">
           <div class="section-heading reveal">
@@ -109,7 +150,7 @@
             <h2 id="showreel-title">Der erste Eindruck muss sitzen.</h2>
           </div>
           <div class="showreel-frame reveal">
-            <video controls playsinline poster="assets/portfolio/filmmaker-hero.png">
+            <video controls playsinline preload="metadata" poster="assets/portfolio/filmmaker-hero.webp">
               <source src="assets/portfolio/showreel-loop.mp4" type="video/mp4" />
             </video>
           </div>
@@ -129,10 +170,17 @@
         </div>
         <div class="work-grid">
           <article class="work-card reveal" data-depth="8">
-            <img
-              src="assets/portfolio/project-documentary.png"
-              alt="Cinematischer Dokumentarfilm-Still in einer regennassen Stadtgasse"
-            />
+            <picture>
+              <source srcset="assets/portfolio/project-documentary.webp" type="image/webp" />
+              <img
+                src="assets/portfolio/project-documentary.png"
+                alt="Cinematischer Dokumentarfilm-Still in einer regennassen Stadtgasse"
+                width="1536"
+                height="1024"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
             <div class="work-caption">
               <p class="work-kicker">Documentary Short</p>
               <h3 id="work-title">After Rain</h3>
@@ -145,10 +193,17 @@
           </article>
 
           <article class="work-card reveal" data-depth="-6">
-            <img
-              src="assets/portfolio/project-commercial.png"
-              alt="Warmer Commercial-Still mit Kaffee, Dampf und Morgenlicht"
-            />
+            <picture>
+              <source srcset="assets/portfolio/project-commercial.webp" type="image/webp" />
+              <img
+                src="assets/portfolio/project-commercial.png"
+                alt="Warmer Commercial-Still mit Kaffee, Dampf und Morgenlicht"
+                width="1536"
+                height="1024"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
             <div class="work-caption">
               <p class="work-kicker">Branded Film</p>
               <h3>Morning Ritual</h3>
@@ -161,10 +216,17 @@
           </article>
 
           <article class="work-card reveal" data-depth="10">
-            <img
-              src="assets/portfolio/project-music.png"
-              alt="Dramatischer Musikvideo-Still mit Taenzerin und hartem Licht"
-            />
+            <picture>
+              <source srcset="assets/portfolio/project-music.webp" type="image/webp" />
+              <img
+                src="assets/portfolio/project-music.png"
+                alt="Dramatischer Musikvideo-Still mit Taenzerin und hartem Licht"
+                width="1536"
+                height="1024"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
             <div class="work-caption">
               <p class="work-kicker">Music Video</p>
               <h3>Hard Light</h3>
@@ -186,62 +248,56 @@
           </div>
           <div class="client-logo-grid reveal" aria-label="Kundenlogos">
             <div class="client-logo-card client-logo-card--dark">
-              <img src="assets/logos/01-gix.png" alt="GIX" loading="lazy" />
+              <img src="assets/logos/01-gix.png" alt="GIX" width="640" height="320" loading="lazy" decoding="async" />
             </div>
             <div class="client-logo-card">
-              <img src="assets/logos/02-basler-zeitung.png" alt="Basler Zeitung" loading="lazy" />
+              <img src="assets/logos/02-basler-zeitung.png" alt="Basler Zeitung" width="640" height="320" loading="lazy" decoding="async" />
             </div>
             <div class="client-logo-card">
-              <img src="assets/logos/03-melo.png" alt="MELO" loading="lazy" />
+              <img src="assets/logos/03-melo.png" alt="MELO" width="640" height="320" loading="lazy" decoding="async" />
             </div>
             <div class="client-logo-card">
-              <img src="assets/logos/04-lets-go-fitness.png" alt="Let's Go Fitness" loading="lazy" />
+              <img src="assets/logos/04-lets-go-fitness.png" alt="Let's Go Fitness" width="640" height="320" loading="lazy" decoding="async" />
             </div>
             <div class="client-logo-card">
-              <img src="assets/logos/05-salvation-army.png" alt="The Salvation Army" loading="lazy" />
+              <img src="assets/logos/05-salvation-army.png" alt="The Salvation Army" width="640" height="320" loading="lazy" decoding="async" />
             </div>
             <div class="client-logo-card">
-              <img src="assets/logos/06-this-is-basel.png" alt="This Is Basel" loading="lazy" />
+              <img src="assets/logos/06-this-is-basel.png" alt="This Is Basel" width="640" height="320" loading="lazy" decoding="async" />
             </div>
             <div class="client-logo-card">
-              <img src="assets/logos/07-lawel.png" alt="Lawel" loading="lazy" />
+              <img src="assets/logos/07-lawel.png" alt="Lawel" width="640" height="320" loading="lazy" decoding="async" />
             </div>
             <div class="client-logo-card">
-              <img src="assets/logos/08-cewe.png" alt="CEWE" loading="lazy" />
+              <img src="assets/logos/08-cewe.png" alt="CEWE" width="640" height="320" loading="lazy" decoding="async" />
             </div>
             <div class="client-logo-card">
-              <img src="assets/logos/09-stadt-liestal.png" alt="Stadt Liestal" loading="lazy" />
+              <img src="assets/logos/09-stadt-liestal.png" alt="Stadt Liestal" width="640" height="320" loading="lazy" decoding="async" />
             </div>
             <div class="client-logo-card">
-              <img src="assets/logos/10-explo-25.png" alt="EXPLO 25" loading="lazy" />
+              <img src="assets/logos/10-explo-25.png" alt="EXPLO 25" width="640" height="320" loading="lazy" decoding="async" />
             </div>
             <div class="client-logo-card">
-              <img src="assets/logos/11-praisecamp-24.png" alt="praiseCAMP24" loading="lazy" />
+              <img src="assets/logos/11-praisecamp-24.png" alt="praiseCAMP24" width="640" height="320" loading="lazy" decoding="async" />
             </div>
           </div>
 
-          <div class="testimonial-grid">
-            <figure class="testimonial reveal">
-              <blockquote>
-                "Platz fuer echtes Kundenfeedback: ein kurzer Satz zu
-                Zusammenarbeit, Tempo und Ergebnis."
-              </blockquote>
-              <figcaption>Kunde / Rolle / Firma</figcaption>
-            </figure>
-            <figure class="testimonial reveal">
-              <blockquote>
-                "Platz fuer eine zweite Kundenstimme: was am Set, im Schnitt
-                oder am finalen Look ueberzeugt hat."
-              </blockquote>
-              <figcaption>Kunde / Rolle / Firma</figcaption>
-            </figure>
-            <figure class="testimonial reveal">
-              <blockquote>
-                "Platz fuer ein drittes Testimonial: praezise, glaubwuerdig und
-                direkt austauschbar."
-              </blockquote>
-              <figcaption>Kunde / Rolle / Firma</figcaption>
-            </figure>
+          <div class="proof-grid">
+            <article class="proof-card reveal">
+              <span>01</span>
+              <h3>Von Idee bis Delivery</h3>
+              <p>Konzept, Dreh, Schnitt, Farbe und Exportvarianten bleiben in einem klaren Prozess.</p>
+            </article>
+            <article class="proof-card reveal">
+              <span>02</span>
+              <h3>Social-first, aber filmisch</h3>
+              <p>Vertikale Cuts, Kampagnenclips und Reels bekommen trotzdem Rhythmus, Licht und Look.</p>
+            </article>
+            <article class="proof-card reveal">
+              <span>03</span>
+              <h3>Platz fuer echte Stimmen</h3>
+              <p>Kundenfeedback wird hier ergaenzt, sobald freigegebene Testimonials vorliegen.</p>
+            </article>
           </div>
         </div>
       </section>
