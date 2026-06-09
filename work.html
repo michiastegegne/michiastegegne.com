@@ -55,8 +55,22 @@
         </div>
       </header>
 
+      <section class="section work-filter-section reveal" aria-labelledby="work-filter-title">
+        <div>
+          <p class="eyebrow">Browse</p>
+          <h2 id="work-filter-title">Sortiere die Arbeiten nach Format.</h2>
+        </div>
+        <div class="work-filter" aria-label="Projektfilter">
+          <button class="is-active" type="button" data-filter="all" aria-pressed="true">Alle</button>
+          <button type="button" data-filter="documentary" aria-pressed="false">Documentary</button>
+          <button type="button" data-filter="commercial" aria-pressed="false">Brand</button>
+          <button type="button" data-filter="music" aria-pressed="false">Music</button>
+          <button type="button" data-filter="social" aria-pressed="false">Social</button>
+        </div>
+      </section>
+
       <section class="section project-list" aria-label="Projektliste">
-        <article class="project-row reveal">
+        <article class="project-row reveal" data-project data-category="documentary social">
           <div class="project-index">01</div>
           <picture>
             <source srcset="assets/portfolio/project-documentary.webp" type="image/webp" />
@@ -76,6 +90,20 @@
               Ruhige Beobachtung, natuerliches Licht, urbane Textur. Ein Format
               fuer Portraits, Mini-Dokus und persoenliche Geschichten.
             </p>
+            <dl class="project-facts">
+              <div>
+                <dt>Format</dt>
+                <dd>Mini Doc / Portrait</dd>
+              </div>
+              <div>
+                <dt>Output</dt>
+                <dd>Hero Film + Social Cuts</dd>
+              </div>
+              <div>
+                <dt>Look</dt>
+                <dd>Natural light, textured city mood</dd>
+              </div>
+            </dl>
             <ul>
               <li>Direction</li>
               <li>Camera</li>
@@ -84,7 +112,7 @@
           </div>
         </article>
 
-        <article class="project-row reveal">
+        <article class="project-row reveal" data-project data-category="commercial social">
           <div class="project-index">02</div>
           <picture>
             <source srcset="assets/portfolio/project-commercial.webp" type="image/webp" />
@@ -105,6 +133,20 @@
               Fuer Marken, die hochwertig aussehen wollen, ohne distanziert zu
               wirken.
             </p>
+            <dl class="project-facts">
+              <div>
+                <dt>Format</dt>
+                <dd>Brand Film</dd>
+              </div>
+              <div>
+                <dt>Output</dt>
+                <dd>Campaign Cut + Vertical Edits</dd>
+              </div>
+              <div>
+                <dt>Look</dt>
+                <dd>Warm product detail, soft movement</dd>
+              </div>
+            </dl>
             <ul>
               <li>Concept</li>
               <li>Lighting</li>
@@ -113,7 +155,7 @@
           </div>
         </article>
 
-        <article class="project-row reveal">
+        <article class="project-row reveal" data-project data-category="music social">
           <div class="project-index">03</div>
           <picture>
             <source srcset="assets/portfolio/project-music.webp" type="image/webp" />
@@ -133,6 +175,20 @@
               Bewegung, Schatten und Performance als visuelle Sprache. Ideal
               fuer Artists, Live-Sessions und Musikvideo-Konzepte.
             </p>
+            <dl class="project-facts">
+              <div>
+                <dt>Format</dt>
+                <dd>Music Video / Performance</dd>
+              </div>
+              <div>
+                <dt>Output</dt>
+                <dd>Main Edit + Release Assets</dd>
+              </div>
+              <div>
+                <dt>Look</dt>
+                <dd>Hard light, rhythm, movement</dd>
+              </div>
+            </dl>
             <ul>
               <li>Direction</li>
               <li>Lighting</li>

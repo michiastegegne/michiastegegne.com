@@ -4,6 +4,8 @@ const body = document.body;
 const heroVideo = document.getElementById("heroVideo");
 const briefBuilder = document.getElementById("briefBuilder");
 const briefMailLink = document.getElementById("briefMailLink");
+const workFilter = document.querySelector(".work-filter");
+const projectRows = document.querySelectorAll("[data-project]");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const canUseParallax = window.matchMedia("(pointer: fine)").matches && !prefersReducedMotion.matches;
 
@@ -96,6 +98,32 @@ if (heroVideo) {
       markMissing();
     }
   }, 1800);
+}
+
+if (workFilter && projectRows.length) {
+  const filterButtons = workFilter.querySelectorAll("button[data-filter]");
+
+  workFilter.addEventListener("click", (event) => {
+    const button = event.target.closest("button[data-filter]");
+
+    if (!button) {
+      return;
+    }
+
+    const activeFilter = button.dataset.filter;
+
+    filterButtons.forEach((filterButton) => {
+      const isActive = filterButton === button;
+      filterButton.classList.toggle("is-active", isActive);
+      filterButton.setAttribute("aria-pressed", String(isActive));
+    });
+
+    projectRows.forEach((row) => {
+      const categories = (row.dataset.category || "").split(" ");
+      const shouldShow = activeFilter === "all" || categories.includes(activeFilter);
+      row.hidden = !shouldShow;
+    });
+  });
 }
 
 if (briefBuilder && briefMailLink) {
