@@ -687,13 +687,6 @@ body[data-video="missing"] .hero-video {
   object-fit: contain;
 }
 
-.testimonial-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-  margin-top: 1.4rem;
-}
-
 .proof-grid {
   margin-top: 1.4rem;
 }
@@ -706,38 +699,13 @@ body[data-video="missing"] .hero-video {
   max-width: 14ch;
 }
 
-.testimonial {
-  min-height: 16rem;
-  margin: 0;
-  padding: 1.4rem;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: rgba(248, 240, 223, 0.05);
-}
-
-.testimonial blockquote {
-  margin: 0;
-  color: rgba(248, 240, 223, 0.88);
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(1.35rem, 2.3vw, 1.9rem);
-  line-height: 1.25;
-}
-
-.testimonial figcaption {
-  margin-top: 1.2rem;
-  color: var(--subtle);
-  font-size: 0.82rem;
-}
-
-.service-pill-grid,
-.brief-grid {
+.service-pill-grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 0.6rem;
 }
 
-.service-pill-grid a,
-.brief-grid span {
+.service-pill-grid a {
   display: flex;
   min-height: 4rem;
   align-items: center;
@@ -1197,7 +1165,6 @@ body[data-video="missing"] .hero-video {
   }
 
   .work-grid,
-  .testimonial-grid,
   .choice-grid,
   .proof-grid,
   .case-metrics,
@@ -1240,7 +1207,6 @@ body[data-video="missing"] .hero-video {
   }
 
   .service-pill-grid,
-  .brief-grid,
   .brief-builder {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1379,7 +1345,6 @@ body[data-video="missing"] .hero-video {
   .reel-notes,
   .client-logo-grid,
   .service-pill-grid,
-  .brief-grid,
   .brief-builder {
     grid-template-columns: 1fr;
   }
