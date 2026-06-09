@@ -362,6 +362,7 @@ body[data-video="missing"] .hero-video {
 .split-section,
 .work-preview,
 .service-strip,
+.package-section,
 .process-section,
 .work-filter-section,
 .project-list,
@@ -721,6 +722,66 @@ body[data-video="missing"] .hero-video {
   background: rgba(248, 240, 223, 0.04);
   font-weight: 700;
   text-align: center;
+}
+
+.package-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.package-card {
+  min-height: 26rem;
+  padding: 1.35rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(184, 69, 53, 0.12), transparent 38%),
+    rgba(248, 240, 223, 0.04);
+}
+
+.package-card--accent {
+  border-color: rgba(230, 173, 88, 0.38);
+  background:
+    linear-gradient(135deg, rgba(230, 173, 88, 0.18), transparent 42%),
+    rgba(248, 240, 223, 0.06);
+}
+
+.package-card span {
+  display: inline-flex;
+  margin-bottom: 5.5rem;
+  color: var(--amber);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.package-card h2 {
+  max-width: 10ch;
+  margin: 0;
+  font-family: "Syne", sans-serif;
+  font-size: clamp(1.65rem, 2.8vw, 2.6rem);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.package-card p {
+  margin: 1rem 0 1.3rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.package-card ul {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.package-card li {
+  padding: 0.65rem 0;
+  border-top: 1px solid rgba(248, 240, 223, 0.12);
+  color: rgba(248, 240, 223, 0.84);
+  font-weight: 700;
 }
 
 .brief-builder {
@@ -1258,6 +1319,7 @@ body[data-video="missing"] .hero-video {
 
   .work-grid,
   .choice-grid,
+  .package-grid,
   .proof-grid,
   .case-metrics,
   .contact-board,
@@ -1420,6 +1482,7 @@ body[data-video="missing"] .hero-video {
   .choice-section,
   .work-preview,
   .service-strip,
+  .package-section,
   .process-section,
   .work-filter-section,
   .project-list,
@@ -1496,9 +1559,14 @@ body[data-video="missing"] .hero-video {
   }
 
   .service-card span,
+  .package-card span,
   .approach-item span,
   .contact-card span {
     margin-bottom: 3rem;
+  }
+
+  .package-card {
+    min-height: 20rem;
   }
 
   .footer {
