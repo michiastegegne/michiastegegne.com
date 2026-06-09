@@ -9,6 +9,7 @@ Static portfolio website for `michiastegegne.com`, hosted with GitHub Pages.
 - `services.html`
 - `about.html`
 - `contact.html`
+- `404.html`
 
 ## Assets
 
