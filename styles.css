@@ -1426,7 +1426,7 @@ body[data-video="missing"] .hero-video {
   display: none;
 }
 
-.reveal {
+.js .reveal {
   opacity: 0;
   transform: translateY(28px);
   transition:
@@ -1434,12 +1434,12 @@ body[data-video="missing"] .hero-video {
     transform 700ms ease;
 }
 
-.reveal.in-view {
+.js .reveal.in-view {
   opacity: 1;
   transform: translateY(0);
 }
 
-.topbar.reveal {
+.js .topbar.reveal {
   opacity: 1;
   transform: none;
 }
