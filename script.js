@@ -12,7 +12,9 @@ const lightboxImage = document.getElementById("lightboxImage");
 const lightboxTitle = document.getElementById("lightboxTitle");
 const lightboxTriggers = document.querySelectorAll("[data-lightbox-src]");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-const canUseParallax = window.matchMedia("(pointer: fine)").matches && !prefersReducedMotion.matches;
+const prefersReducedData = window.matchMedia("(prefers-reduced-data: reduce)");
+const canUseParallax =
+  window.matchMedia("(pointer: fine)").matches && !prefersReducedMotion.matches && !prefersReducedData.matches;
 const emptyLightboxImage = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
 let activeLightboxTrigger = null;
 
@@ -110,22 +112,28 @@ if (heroVideo) {
     }
   };
 
-  heroVideo.addEventListener("canplay", markReady, { once: true });
-  heroVideo.addEventListener("loadeddata", markReady, { once: true });
-  heroVideo.addEventListener("error", markMissing, { once: true });
+  if (prefersReducedData.matches) {
+    heroVideo.removeAttribute("autoplay");
+    heroVideo.pause?.();
+    markMissing();
+  } else {
+    heroVideo.addEventListener("canplay", markReady, { once: true });
+    heroVideo.addEventListener("loadeddata", markReady, { once: true });
+    heroVideo.addEventListener("error", markMissing, { once: true });
 
-  const playbackAttempt = heroVideo.play?.();
-  if (playbackAttempt?.catch) {
-    playbackAttempt.catch(markMissing);
-  }
-
-  window.setTimeout(() => {
-    if (heroVideo.readyState >= 2) {
-      markReady();
-    } else {
-      markMissing();
+    const playbackAttempt = heroVideo.play?.();
+    if (playbackAttempt?.catch) {
+      playbackAttempt.catch(markMissing);
     }
-  }, 1800);
+
+    window.setTimeout(() => {
+      if (heroVideo.readyState >= 2) {
+        markReady();
+      } else {
+        markMissing();
+      }
+    }, 1800);
+  }
 }
 
 if (workFilter && projectRows.length) {

@@ -1813,3 +1813,13 @@ body[data-video="missing"] .hero-video {
     transition: none !important;
   }
 }
+
+@media (prefers-reduced-data: reduce) {
+  .site-grain {
+    display: none;
+  }
+
+  .ticker-track {
+    animation: none;
+  }
+}
