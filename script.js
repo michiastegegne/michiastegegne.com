@@ -6,8 +6,30 @@ const briefBuilder = document.getElementById("briefBuilder");
 const briefMailLink = document.getElementById("briefMailLink");
 const workFilter = document.querySelector(".work-filter");
 const projectRows = document.querySelectorAll("[data-project]");
+const copyButtons = document.querySelectorAll("[data-copy]");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const canUseParallax = window.matchMedia("(pointer: fine)").matches && !prefersReducedMotion.matches;
+
+const copyText = async (value) => {
+  if (navigator.clipboard?.writeText && window.isSecureContext) {
+    await navigator.clipboard.writeText(value);
+    return;
+  }
+
+  const field = document.createElement("textarea");
+  field.value = value;
+  field.setAttribute("readonly", "");
+  field.style.position = "fixed";
+  field.style.top = "-100vh";
+  document.body.append(field);
+  field.select();
+  const didCopy = document.execCommand("copy");
+  field.remove();
+
+  if (!didCopy) {
+    throw new Error("Copy failed");
+  }
+};
 
 if ("IntersectionObserver" in window && !prefersReducedMotion.matches) {
   const revealObserver = new IntersectionObserver(
@@ -125,6 +147,53 @@ if (workFilter && projectRows.length) {
     });
   });
 }
+
+copyButtons.forEach((button) => {
+  const originalText = button.textContent.trim();
+
+  button.addEventListener("click", async () => {
+    const value = button.dataset.copy;
+    const status = button.parentElement?.querySelector(".copy-status");
+
+    if (!value) {
+      return;
+    }
+
+    try {
+      await copyText(value);
+      button.textContent = "Kopiert";
+      button.classList.add("is-copied");
+      if (status) {
+        status.textContent = "Mailadresse ist in der Zwischenablage.";
+      }
+    } catch (error) {
+      const emailLink = button.parentElement?.querySelector('a[href^="mailto:"]');
+
+      if (emailLink && window.getSelection) {
+        const selection = window.getSelection();
+        const range = document.createRange();
+        range.selectNodeContents(emailLink);
+        selection.removeAllRanges();
+        selection.addRange(range);
+        emailLink.focus();
+        button.textContent = "Markiert";
+        button.classList.add("is-copied");
+      }
+
+      if (status) {
+        status.textContent = "Mailadresse ist markiert und kann manuell kopiert werden.";
+      }
+    }
+
+    window.setTimeout(() => {
+      button.textContent = originalText;
+      button.classList.remove("is-copied");
+      if (status) {
+        status.textContent = "";
+      }
+    }, 2400);
+  });
+});
 
 if (briefBuilder && briefMailLink) {
   const updateBriefMail = () => {
