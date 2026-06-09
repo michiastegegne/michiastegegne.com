@@ -1,0 +1,21 @@
+{
+  "name": "Michias Tegegne | Filmmaker",
+  "short_name": "Michias",
+  "description": "Filmmaker Portfolio von Michias Tegegne.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f0e0b",
+  "theme_color": "#0f0e0b",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
